@@ -14,6 +14,7 @@ import javax.sql.*;
 
 import bean.Annotation;
 import bean.Disease;
+import bean.DiseasesCount;
 import bean.Registration;
 
 public class DatabaseConnection {
@@ -23,13 +24,9 @@ public class DatabaseConnection {
 
 	
 	/*Uncomment when deployin in cloudbees*/
-	/*public DatabaseConnection() {
+	public DatabaseConnection() {
 		try {
-			Class.forName("com.mysql.jdbc.Driver").newInstance();
-			con = DriverManager.getConnection(
-					"jdbc:mysql://localhost:3306/bodymap", "root",
-					"12345");
-			
+				
 			Context ctx = new InitialContext();
 			DataSource ds = (DataSource)ctx.lookup("java:comp/env/jdbc/mydb");
 			 con = ds.getConnection();
@@ -43,9 +40,9 @@ public class DatabaseConnection {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}*/
+	}
 	
-	public DatabaseConnection() {
+	/*public DatabaseConnection() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
 			con = DriverManager.getConnection(
@@ -65,7 +62,7 @@ public class DatabaseConnection {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
+	}*/
 	
 	
 	
@@ -572,7 +569,40 @@ public class DatabaseConnection {
 		}
 
 	
+	/*sudh*/
 	
+	public ArrayList<DiseasesCount> getDiseasesCount(){
+		String result = "";
+
+		ArrayList<DiseasesCount> dCount = new ArrayList<DiseasesCount>();
+		try {
+			// Retrieve all diseases from the DB
+			PreparedStatement stmt = con.prepareStatement("SELECT COUNT(annotation.bid) AS Count,disease.diseasename AS DiseaseName FROM annotation,disease "+
+							"WHERE annotation.diseasecode=disease.diseasecode GROUP BY annotation.diseasecode;");
+			ResultSet rs = stmt.executeQuery();
+
+			if (rs != null) {
+				while (rs.next()) {
+					DiseasesCount dc = new DiseasesCount();
+					dc.setDiseaseName(rs.getString("DiseaseName"));
+					dc.setCount(rs.getInt("Count"));
+					dCount.add(dc);
+				}
+
+				return dCount;
+			} else {
+				result = "No Diseases Entered For Patients";
+				System.out.println(result);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return null;
+	
+				
+	}
+
 	
 	
 }

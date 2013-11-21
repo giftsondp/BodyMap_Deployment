@@ -47,6 +47,7 @@
     		
     		 $("#dash").remove();
     		 $("#edit").remove();
+    		 $("#chart").remove();
     		 $('#view').attr("href","PatientLandingPage.jsp");
     		 $('#report').attr("href","PatientPrintReport.jsp");    		 
     		 }
@@ -93,7 +94,8 @@
                    <li id="dash" style="height: 30px;"><a  href="DoctorLandingPage.jsp"><i class="fa fa-dashboard"></i>&nbsp;&nbsp;DashBoard</a></li>
                    <li style="height: 30px;"><a href="DoctorViewMode.jsp" id="view"><i class="fa fa-eye"></i>&nbsp;&nbsp;View Mode</a></li>
                    <li id="edit" style="height: 30px;"><a  href="DoctorEditMode.jsp"><i class="fa fa-edit"></i>&nbsp;&nbsp;Edit Mode</a></li>        
-                   <li style="height: 30px;"><a href="DoctorPrintReport.jsp" id="report"><i class="fa fa-print"></i>&nbsp;&nbsp;Print Report</a></li>   
+                   <li style="height: 30px;"><a href="DoctorPrintReport.jsp" id="report"><i class="fa fa-print"></i>&nbsp;&nbsp;Print Report</a></li> 
+                   <li id="chart" style="height: 30px;"><a href="RenderDiseasesChart" id="report"><i class="fa fa-bar-chart-o"></i>&nbsp;&nbsp;Charts</a></li>  
                    <li class="divider"></li>   
                    <li style="height: 30px;"><a href="Logout.jsp" id="logout"><i class="fa fa-sign-out"></i>&nbsp;&nbsp;Logout</a></li>                   
         </ul>

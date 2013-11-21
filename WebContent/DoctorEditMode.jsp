@@ -212,7 +212,7 @@
    
      <div class="col-lg-5">
 
-       <div id="obj" style=";border:1px solid;">	
+       <div id="obj" style="border:1px solid;">	
        
        <svg id="svgElement" style="width: 100%; height: 100%; position: absolute; top:0; left:0;">
 

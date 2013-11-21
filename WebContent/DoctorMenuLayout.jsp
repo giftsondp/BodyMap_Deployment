@@ -63,10 +63,10 @@
          	 <li><a href="DoctorLandingPage.jsp"><i class="fa fa-dashboard"></i> Dashboard</a></li>  
              <li><a href="DoctorViewMode.jsp"><i class="fa fa-eye"></i> View Mode</a></li>  
              <li><a href="DoctorEditMode.jsp"><i class="fa fa-edit"></i> Edit Mode</a></li>
-             <li><a href="DoctorPrintReport.jsp"><i class="fa fa-print"></i> Print Report</a></li>               
+             <li><a href="DoctorPrintReport.jsp"><i class="fa fa-print"></i> Print Report</a></li> 
+            <li><a href="RenderDiseasesChart" ><i class="fa fa-bar-chart-o"></i> Charts</a></li>              
           </ul>
-        </div>
-   
+        </div>   
       </nav>
 
 

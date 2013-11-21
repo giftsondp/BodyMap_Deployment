@@ -33,6 +33,13 @@
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">   
     <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">    
     
+    <style type="text/css">
+    #obj{
+    
+    display: none;
+    }
+    
+    </style>
     
     <script type="text/javascript">
 
@@ -50,14 +57,14 @@ $( document ).ready(function() {
 	if(patientGender=="M" && bodyMap=="Yes" )
 		{
 			
-		   $.getScript("js/Male_Report.js");
+		   $.getScript("js/Male.js");
 		
 		}
 	
 	else if (patientGender=="F" && bodyMap=="Yes")
 		{
 		
-		 $.getScript("js/Female_Report.js");
+		 $.getScript("js/Female.js");
 		}
 	
 	
@@ -70,6 +77,24 @@ $( document ).ready(function() {
 		
 		
 	});
+	
+$('#switch').click(function() {
+   		
+        $('#pageone').hide();
+        $('#obj').show();
+    /*  }, function() {
+        $('#obj').hide();
+        $('#pageone').show();  */
+});
+   	
+   	$('#leftarrow').click(function() {
+   		
+        $('#obj').hide();
+        $('#pageone').show();
+    /*  }, function() {
+        $('#obj').hide();
+        $('#pageone').show();  */
+});
 	
 	/* $('canvas') */
 	
@@ -151,7 +176,7 @@ $( document ).ready(function() {
             </ol>
             <div class="alert alert-info alert-dismissable">
               <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            		Click Print to generate  PDF for your report!   </div>
+            		Generate Your Report here! Use the Right Chevron to see your body map which is in page 2.  </div>
             		
           <div id="printmenu" class="btn-group">  		
           <button type="button" id="generateReport" class="btn btn-primary">Generate Report</button>
@@ -164,14 +189,14 @@ $( document ).ready(function() {
            </div>
     </div> 
     
-    
+    <a href="#" id="leftarrow" style="position: absolute; top: 40%; right:58%"> <i class="fa fa-chevron-left" id="leftarrow"></i></a>
       <form role="form" id="reportForm">
 	  <div class="col-lg-6" style="border:1px solid;top:-10px; left:5%;">
 	<h3 align="center">2D Body Map for EHR</h3>
 	<h4 align="center">Report</h4>
 	<hr>
 
-
+<div id="pageone">
   <div class="row"> 
   <div class="col-lg-5">
   
@@ -198,7 +223,7 @@ $( document ).ready(function() {
   </div> 
     
     <!--1st row second column  -->
-       <div class="col-lg-6" style="left:5px; top: -37px;">
+      <%--  <div class="col-lg-6" style="left:5px; top: -37px;">
        <div id="obj" style="top:30px;position: relative;border:1px solid;">
     
     
@@ -210,7 +235,7 @@ $( document ).ready(function() {
               
 				
 					 <a href="About.jsp" id="annotationsLink" data-ot="Disease Code:${annotation[index].getDiseaseCode()}" data-ot-hide-trigger="trigger" data-ot-target="true"> <circle cx="${annotation[index].getX_Coord()-100}" cy="${annotation[index].getY_Coord()-35}" r="3" fill="yellow" />
-					<%-- <text dx="${annotation[index].getX_Coord()+14}" dy="${annotation[index].getY_Coord()-60}">${annotation[index].getExtraDiseaseName()}</text>--%></a> 
+					<text dx="${annotation[index].getX_Coord()+14}" dy="${annotation[index].getY_Coord()-60}">${annotation[index].getExtraDiseaseName()}</text></a> 
 					 
 					 
 			
@@ -221,7 +246,7 @@ $( document ).ready(function() {
         
         </div>
     
-</div>
+</div> --%>
     
     </div><!--Row -->
     
@@ -263,13 +288,36 @@ $( document ).ready(function() {
               </table>
               </div>
             </div>
+            
             </div><!--Disease Table Row  -->
+           </div> 
+                <div id="obj" style="left: 12%; position: relative;">
+    
+    
+ 	<svg style="width: 100%; height: 100%; position: absolute; top:0; left:0;">
+
+        <c:if test="${annotation ne null }">
+				
+					<c:forEach begin="0" end="${fn:length(annotation)-1}" var="index">
+              
+				 <a href="About.jsp" id="annotationsLink" data-ot="Disease Code:${annotation[index].getDiseaseCode()}" data-ot-hide-trigger="trigger" data-ot-target="true"> <circle cx="${annotation[index].getX_Coord()+2}" cy="${annotation[index].getY_Coord()}" r="6" fill="yellow" />
+					<text dx="${annotation[index].getX_Coord()+12}" dy="${annotation[index].getY_Coord()+4}">${annotation[index].getExtraDiseaseName()}</text></a> 
+						 
+					 
+			
+					</c:forEach>
+				
+			</c:if>
+ </svg>
+        
+        </div>
   </div>
 
 
       
        
    </form>
+      <a href="#" id="switch" style="top: 40% ; left:86.75%; position: absolute;"> <i class="fa fa-chevron-right" id="switch"></i></a>
    </div>
  </div>
 </div>

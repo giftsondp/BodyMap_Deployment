@@ -50,7 +50,7 @@
                   <img class="img-responsive img-full" src="img/blender1.jpg" >
                 </div>
                 <div class="item">
-                  <img class="img-responsive img-full" src="img/slide-3.jpg" >
+                  <img class="img-responsive img-full" src="img/slide31.jpg" >
                 </div>
               </div>
             
@@ -63,6 +63,30 @@
               </a>
             </div>
             <h3><small>Welcome to</small><br><span class="brand-name">Two Dimensional Body Map for EHR</span><hr class="tagline-divider"></h3>
+            
+		  	<div id="fb-root"></div>
+			<script>
+				(function(d, s, id) {
+				  var js, fjs = d.getElementsByTagName(s)[0];
+				  if (d.getElementById(id)) return;
+				  js = d.createElement(s); js.id = id;
+				  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+				  fjs.parentNode.insertBefore(js, fjs);
+				}(document, 'script', 'facebook-jssdk'));
+			</script>
+			<script>		
+				!function(d,s,id){
+					var js,fjs=d.getElementsByTagName(s)[0];
+					if(!d.getElementById(id)){
+						js=d.createElement(s);
+						js.id=id;
+						js.src="http://platform.twitter.com/widgets.js";
+						fjs.parentNode.insertBefore(js,fjs);
+					}
+				}(document,"script","twitter-wjs");
+			</script>
+			<div class="fb-like" data-href="http://twodmapperforehr.giftsonp.cloudbees.net/" data-width="10" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div>
+    		<a href="https://twitter.com/twitterapi" class="twitter-follow-button" data-show-count="true" data-lang="en">Follow @twitterapi</a>
           </div>
         </div>
       </div>

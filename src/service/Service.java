@@ -6,6 +6,7 @@ import java.util.*;
 
 import bean.Annotation;
 import bean.Disease;
+import bean.DiseasesCount;
 import bean.Registration;
 
 public class Service {
@@ -127,5 +128,16 @@ public class Service {
 		
 	}
 	
-	
+	public DiseasesCount[] getDiseaseCount() {
+		ArrayList<DiseasesCount> dCount = new ArrayList<DiseasesCount>();
+		dCount = db.getDiseasesCount();
+
+		DiseasesCount[] diseasesCount = new DiseasesCount[dCount.size()];
+
+		for (int i = 0; i < dCount.size(); i++) {
+			diseasesCount[i] = dCount.get(i);
+		}
+
+		return diseasesCount;
+	}
 }

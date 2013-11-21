@@ -73,8 +73,7 @@
         <div class="collapse navbar-collapse navbar-ex2-collapse">
           <ul class="nav navbar-nav " >
             <li><a href="PatientLandingPage.jsp"><i class="fa fa-eye"></i> View Mode</a></li>
-             <li><a href="PatientPrintReport.jsp"><i class="fa fa-print"></i> Print Report</a></li>
-            <li><a href="Charts.jsp"><i class="fa fa-bar-chart-o"></i> Charts</a></li>           
+             <li><a href="PatientPrintReport.jsp"><i class="fa fa-print"></i> Print Report</a></li>      
           </ul>
         </div>
    
